@@ -30,7 +30,7 @@ This model output an [accuracy of 96.5%](https://github.com/allysonpfeil/xray_CN
 #### Breakdown of my propietary dataset:
 #### n=1169 training images:
   * */experimental/* (n=760)
-  * */control/* (n=409) and
+  * */control/* (n=409)
 
 #### n=200 testing images:
   * */experimental/* (n=100)
