@@ -10,7 +10,7 @@ tf.random.set_seed(42)
 os.environ['PYTHONHASHSEED'] = '42'
 
 # Define data directories and parameters
-base_dir = '/home/allysonpfeil/devel/actis xrays edit' #linux file path
+base_dir = '/home/allysonpfeil/devel/insert_path_here' #linux file path
 train_dir = os.path.join(base_dir, 'train/') #folder names within path
 test_dir = os.path.join(base_dir, 'test/') #folder names within path
 img_size = (64, 64)
