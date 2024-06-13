@@ -1,15 +1,12 @@
-# import packages
 import os
 import tensorflow as tf
 from tensorflow.keras import layers, models
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping
 
-# Set random seeds for reproducibility
 tf.random.set_seed(42)
 os.environ['PYTHONHASHSEED'] = '42'
 
-# Define data directories and parameters
 base_dir = '/home/allysonpfeil/devel/insert_path_here' #linux file path
 train_dir = os.path.join(base_dir, 'train/') #folder names within path
 test_dir = os.path.join(base_dir, 'test/') #folder names within path
@@ -17,7 +14,6 @@ img_size = (64, 64)
 batches = 32
 epochs = 50
 
-# create data generators and augment training data
 train_datagen = ImageDataGenerator(
     rescale=1.0/255., #normalization
     rotation_range=20,
@@ -59,15 +55,12 @@ model = models.Sequential([
     layers.Dense(1, activation='sigmoid')
 ])
 
-# compile the model
 model.compile(optimizer='RMSprop',
               loss='binary_crossentropy',
               metrics=['accuracy'])
 
-# define early stopping callback
 early_stopping = EarlyStopping(patience=10, restore_best_weights=True)
 
-# train the model
 history = model.fit(
     train_generator,
     epochs=epochs,
@@ -75,8 +68,5 @@ history = model.fit(
     callbacks=[early_stopping]
 )
 
-# evaluate the model
 test_loss, test_accuracy = model.evaluate(test_generator)
 print(f'Test accuracy: {test_accuracy}')
-
-# end
